@@ -8,6 +8,8 @@ import Login from './components/Shared/Login/Login';
 import Registration from './components/Shared/Registration/Registration';
 
 function App() {
+  
+  
   return (
     <div className="App">
       <Navbar></Navbar>

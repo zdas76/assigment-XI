@@ -11,10 +11,9 @@ const Navbar = () => {
                 <div className='border-r px-3'><p> +88017100000000</p></div>
                 <div className='border-r px-3'><p> Sat-Wed: 9.00 AM  - 10.00 PM</p></div>
                 <div className='border-r px-3 flex'>
-                    <i className="fas fa-user text-blue-500 mt-1"></i>
-                    <Link to="login" className='mx-2 text-blue-400'>Log In </Link>
-                    <p>or</p>
-                    <Link to="registration" className='mx-2 text-blue-400'>Registration </Link>
+                 
+                    (<Link to="login" className='mx-2 text-blue-400'> <i className="fas fa-user text-blue-500 mt-1"></i> Log In </Link>
+                    <p>or</p> <Link to="registration" className='mx-2 text-blue-400'>Registration </Link>)
                 </div>
                 <div></div>
             </div>
