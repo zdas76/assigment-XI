@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import google from '../../../images/google.png';
-import app from '../../../firebase.init';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+
 
 const Login = () => {
-    const [user, setUser] = useState({});
-
-    const auth = getAuth(app);
-    const provider = new GoogleAuthProvider();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider(auth);
 
     const handelGoogleSingin = () => {
         signInWithPopup(auth, provider)
             .then((result) => {
                 const user = result.user;
-                setUser(user);
                 console.log(user);
             })
             .catch(error => {
@@ -22,7 +26,42 @@ const Login = () => {
             })
     };
 
+    const [
+        signInWithEmailAndPassword,
+        loginuser,
+        loginloading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+
+    
+ 
+    const handleEmain = e => {
+        setEmail(e.target.value);
+    }
+
+    const handlePassword = e => {
+        setPassword(e.target.value);
+    }
+
+   
+
+    // useEffect(() => {
+    //     if (loginuser || user) {
+    //         navigate("/")
+    //     }
+    // });
+
+   const handleUserSignIn = e => {
+       e.preventDefault();
+       
+        signInWithEmailAndPassword(email, password);
+        console.log(email, password);
+    }
+    if (loginuser) {
+        navigate(from, { replace: true });;
+    }
         
+    
 
     return (
         <div className='min-h-screen flex flex-col items-center justify-center bg-gray-100'>
@@ -35,14 +74,14 @@ const Login = () => {
                 </h1>
 
                 <div className="mt-10">
-                    <form action="#">
+                    <form onSubmit={handleUserSignIn}>
                       <div className="flex flex-col mb-5">
                             <div className="relative">
                                 <div className="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400" >
                                     <i className="fas fa-at text-blue-500"></i>
                                 </div>
 
-                                <input id="email" type="email" name="email" className="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border  border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Enter your email" />
+                                <input onBlur={handleEmain} id="email" type="email" name="email" className="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border  border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="Enter your email" required/>
                             </div>
                         </div>
 
@@ -52,7 +91,7 @@ const Login = () => {
                                     <span> <i className="fas fa-lock text-blue-500"></i> </span>
                                 </div>
 
-                                <input id="password" type="password" name="password" className=" text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400 " placeholder="Enter your password" />
+                                <input onBlur={handlePassword} id="password" type="password" name="password" className=" text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400 " placeholder="Enter your password" required/>
                             </div>
                         </div>
 
@@ -65,6 +104,8 @@ const Login = () => {
                             </button>
                         </div>
                     </form>
+                    <p style={{ color: 'red' }}> {error?.message}</p>
+                    {loginloading && <p>Loding...</p>}
                 </div>
                 <div className="flex justify-center items-center mt-6">
                     <span className="ml-2" > Need to register?
@@ -73,8 +114,8 @@ const Login = () => {
                 </div>
                 
                 <div className="flex w-full">
-                    <button onClick={handelGoogleSingin} type="submit" className="flex mt-2 items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-500 hover:bg-blue-600 rounded-2xl py-2 w-full transition duration-150 ease-in ">
-                        <span className="mr-2 uppercase">Log In with Google</span>
+                    <button type="submit" className="flex mt-2 items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-500 hover:bg-blue-600 rounded-2xl py-2 w-full transition duration-150 ease-in ">
+                        <span onClick={handelGoogleSingin} className="mr-2 uppercase">Log In with Google</span>
                         <span><img className='w-6' src={google} alt="" /></span>
                     </button>
                 </div>
