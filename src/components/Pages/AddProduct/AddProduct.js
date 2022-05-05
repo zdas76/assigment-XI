@@ -42,8 +42,8 @@ const AddProduct = () => {
                         <input className="form-control" {...register("name", { required: true, maxLength: 100 })} />
                         <input className="form-control my-4" {...register("img", { required: true, maxLength: 200 })} />
                         <input className="form-control my-4" {...register("description", { required: true, maxLength: 500 })} />
-                        <input className="form-control my-4" type="number" {...register("quantity", { min: 1, max: 100000 })} />
-                        <input className="form-control my-4" type="number" {...register("price", { min: 1, max: 100000 })} />
+                        <input className="form-control my-4" type="number" {...register("quantity", { required: true, min: 1, max: 100000 })} />
+                        <input className="form-control my-4" type="number" {...register("price", { required: true, min: 1, max: 100000 })} />
                         <input className="form-control " {...register("supplierName", { required: true, maxLength: 500 })} />
                     </div>
                 </div>

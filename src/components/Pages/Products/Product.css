@@ -1,0 +1,29 @@
+.pagination{
+    margin: flex;
+    justify-content: center;
+}
+.pagination select{
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+.pagination button{
+    margin-right: 5px;
+    background-color: rgb(233, 227, 227);
+    border: 1px solid rgb(82, 80, 80);
+    padding: 2px 15px;
+    border-radius: 5px;
+    color: rgb(4, 4, 22);
+    font-weight: 700;
+
+}
+
+.pagination .selected{
+    margin-right: 5px;
+    background-color: rgb(26, 4, 137);
+    border: 1px solid rgb(18, 4, 172);
+    padding: 2px 15px;
+    border-radius: 5px;
+    color: rgb(224, 224, 231);
+    font-weight: 700;
+}

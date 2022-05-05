@@ -25,8 +25,8 @@ const Modal = ({ open, children, onClose, product }) => {
                             <Card.Text className='text-left'>
                                 <p className='align'> <strong>Description:</strong> {product.description}</p>
                                 <p> <strong>Price:</strong> BDT. {product.price}</p>
-                                <p><strong>Available Quantity :</strong> {product.quantity}</p>
-                                <p><strong>Supplier :</strong> {product.supplierName}</p>
+                                <p> <strong>Available Quantity :</strong> {product.quantity}</p>
+                                <p> <strong>Supplier :</strong> {product.supplierName}</p>
 
                             </Card.Text>
                         </Card.Body>
