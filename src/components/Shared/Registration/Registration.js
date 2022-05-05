@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
@@ -36,7 +36,7 @@ const Registration = () => {
         
         
     // },[]);
-    
+
     if (user) {
         navigate('/home');
     }

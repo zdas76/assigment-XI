@@ -10,7 +10,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || '/login';
     
     const auth = getAuth();
     const provider = new GoogleAuthProvider(auth);
@@ -28,7 +28,7 @@ const Login = () => {
 
     const [
         signInWithEmailAndPassword,
-        loginuser,
+        user,
         loginloading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
@@ -43,23 +43,17 @@ const Login = () => {
         setPassword(e.target.value);
     }
 
-   
-
-    // useEffect(() => {
-    //     if (loginuser || user) {
-    //         navigate("/")
-    //     }
-    // });
-
-   const handleUserSignIn = e => {
+    if (user) {
+        navigate(from, { replace: true });
+    }
+    
+const handleUserSignIn = e => {
        e.preventDefault();
        
         signInWithEmailAndPassword(email, password);
         console.log(email, password);
     }
-    if (loginuser) {
-        navigate(from, { replace: true });;
-    }
+  
         
     
 
