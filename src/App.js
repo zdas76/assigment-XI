@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import About from './components/Pages/About/About';
@@ -7,6 +8,7 @@ import Contact from './components/Pages/Contact/Contact';
 import Home from './components/Pages/Home/Home';
 import Navbar from './components/Pages/Navbar/Navbar';
 import Product from './components/Pages/Product/Product';
+import ChekOut from './components/Pages/Products/ChekOut';
 import Products from './components/Pages/Products/Products';
 import RequiredAuth from './components/Pages/RequiredAuth/RequiredAuth';
 import Footer from './components/Shared/Footer/Footer';
@@ -14,7 +16,6 @@ import Login from './components/Shared/Login/Login';
 import Registration from './components/Shared/Registration/Registration';
 
 function App() {
-  
   
   return (
     <div className="App">
@@ -28,7 +29,9 @@ function App() {
         <Route path='/products' element={<Products></Products>}></Route>
           <Route path='/addproduct' element={
           <AddProduct></AddProduct>}></Route>
-          <Route path='/contact' element={<Contact></Contact>}></Route>
+        <Route path='/checkout' element={<ChekOut></ChekOut>}></Route>
+        <Route path='/contact' element={<Contact></Contact>}></Route>
+        
           <Route path='/login' element={<Login></Login>}></Route>
           <Route path='/registration' element={<Registration></Registration>}></Route>
         </Routes>

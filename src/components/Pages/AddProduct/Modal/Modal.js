@@ -4,7 +4,6 @@ import './Modal.css'
 
 const Modal = ({ open, children, onClose, product }) => {
     
-    console.log(product);
     if (!open) {
         return null
     };

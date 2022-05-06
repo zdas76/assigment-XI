@@ -27,3 +27,17 @@
     color: rgb(224, 224, 231);
     font-weight: 700;
 }
+
+.main{
+/* position: relative; */
+
+}
+
+.cart-main{
+    position: sticky;
+    width: 200px;
+    margin: 2px;
+    z-index: 1;
+    top: 0;
+    right: 0;
+}
