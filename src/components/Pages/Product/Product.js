@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Card } from 'react-bootstrap';
 import Modal from '../AddProduct/Modal/Modal';
 
-const Product = ({ product, addToCart }) => {
+const Product = ({ product, addToCart, setCart }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (

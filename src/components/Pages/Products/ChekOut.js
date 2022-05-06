@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { deleteShoppingCart, removeFromDb } from '../../Hooks/LocalStore';
 import useCart from '../../Hooks/useCart';
 import useProducts from '../../Hooks/useProducts';
 import ReviewItem from './ReviewItem';
@@ -6,8 +6,7 @@ import ReviewItem from './ReviewItem';
 const ChekOut = ( ) => {
     
     const [products, setProducts] = useProducts([]);
-    const [cart, setCart] = useCart(products);
-    console.log(cart);
+    const [cart, setCart] = useCart();
 
     let totalAmount = 0;
     let totalQuantity = 0;
@@ -18,8 +17,20 @@ const ChekOut = ( ) => {
         grantTotalAmount = grantTotalAmount + parseInt(item.quantity * item.price)
     }
 
-    const oderConfer = () => {
+    const oderConfer = (products) => {
         let productQuantity = cart.quantity;
+        const rest = products.filter(product =>
+            
+            product._id === product._id);
+        setCart(rest);
+        console.log(productQuantity);
+    }
+
+    
+    const deleteItem = (product) => {
+        const rest = cart.filter(cartProduct => cartProduct._id !== product._id);
+        setCart(rest);
+        removeFromDb(product._id);
     }
 
     return (
@@ -35,6 +46,7 @@ const ChekOut = ( ) => {
                 cart.map(product => <ReviewItem
                     key={product._id}
                     product={product}
+                    deleteItem={deleteItem}
                 ></ReviewItem>)
             }
             <div className='d-flex'>

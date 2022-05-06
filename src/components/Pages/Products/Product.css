@@ -28,16 +28,17 @@
     font-weight: 700;
 }
 
-.main{
-/* position: relative; */
-
-}
 
 .cart-main{
     position: sticky;
     width: 200px;
-    margin: 2px;
+    margin-left: auto;
     z-index: 1;
     top: 0;
     right: 0;
+    border-radius: 0 0 0 15px;
+}
+
+.img-size{
+    width: 50px;
 }

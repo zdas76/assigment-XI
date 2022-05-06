@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { addTolocalStore, getStoredCart } from '../../Hooks/LocalStore';
-// import useProducts from '../../Hooks/useProducts';
+import useCart from '../../Hooks/useCart';
 import Product from '../Product/Product';
 import Cart from './Cart/Cart';
 import './Product.css'
@@ -11,7 +11,7 @@ const Products = () => {
     const [pageCount, setPageCount] = useState([0]);
     const [page, setPage] = useState(0);
     const [size, setSize] = useState(9);
-    let [cart, setCart] = useState([]);
+    let [cart, setCart] = useCart();
 
     useEffect(() => {
         fetch(`http://localhost:5000/product?page=${page}&size=${size}`)
@@ -31,21 +31,7 @@ const Products = () => {
             });
     });
 
-    useEffect(() => {
-        const storedCart = getStoredCart();
-        const saveCart = [];
-        for (const id in storedCart) {
-            const addedProduct = products.find(product => product._id === id);
-            if (addedProduct) {
-                const quantity = storedCart[id];
-                addedProduct.quantity = quantity;
-                saveCart.push(addedProduct);
-            }
-        }
-        setCart(saveCart);
-
-    }, [products]);
-
+    
     
     //Add cart product
     const addToCart = (product) => {
@@ -58,8 +44,10 @@ const Products = () => {
     return (
 			
         <div className='main'>
-            <div className=' cart-main bg-info py-2'>
-                <Cart cart={cart}></Cart>
+            <div className=' cart-main bg-info shadow py-2 fw-bold'>
+                <Cart cart={cart}>
+
+                </Cart>
             </div>
 
             <div className='container'>

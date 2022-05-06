@@ -4,14 +4,26 @@ import { getStoredCart } from './LocalStore';
 
 
 
-const useCart = (products) => {
+const useCart = () => {
 
     let [cart, setCart] = useState([]);
+
 
     useEffect(() => {
         const storedCart = getStoredCart();
         const saveCart = [];
-        for (const id in storedCart) {
+        const keys = Object.keys(storedCart)
+        fetch('http://localhost:5000/productByKeys', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(keys)
+        })
+            .then(res => res.json())
+            .then(products => {
+        
+            for (const id in storedCart) {
             const addedProduct = products.find(product => product._id === id);
             if (addedProduct) {
                 const quantity = storedCart[id];
@@ -20,8 +32,10 @@ const useCart = (products) => {
             }
         }
         setCart(saveCart);
+        })
+      
 
-    }, [products]);
+    }, []);
 
 
     return [cart, setCart];

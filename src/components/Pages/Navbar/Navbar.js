@@ -31,6 +31,7 @@ const Navbar = () => {
                 <NavLink to="products" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Products </NavLink>
                 <NavLink to="about" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>About </NavLink>
                 <NavLink to="blogs" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Blogs </NavLink>
+                <NavLink to="chekinvenroty" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Check Inventory </NavLink>
                 <NavLink to="addproduct" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>AddProduct </NavLink>
                 <NavLink to="contact" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Contact </NavLink>
             </div>
