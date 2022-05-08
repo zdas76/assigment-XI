@@ -2,17 +2,17 @@
 color: white;
 font-size: 18px;
 font-weight: 700;
-padding: 5px 30px;
+padding: 0 10px;
 border-bottom: 2px solid lightyellow;
 margin-right: 25px;
 }
 
 
 .inactive{
-    color: rgb(121, 121, 116);
+    color: rgb(186, 186, 173);
     font-size: 18px;
     font-weight: 700;
-    padding: 5px 30px;
+    padding: 0 10px;
     border-bottom: 2px solid rgb(133, 133, 130);
-    margin-right: 25px;
+    margin-right: 10px;
 }

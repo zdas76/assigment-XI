@@ -26,6 +26,9 @@ const AddProduct = () => {
 
     return (
         <div className="container my-5" >
+            <div className="my-5">
+                <p className="display-6 fw-bold">Add Product</p>
+            </div>
             
             <form className=" " onSubmit={handleSubmit(onSubmit)}>
                 <div className="d-flex justify-content-center w-100 mx-auto">
@@ -47,7 +50,7 @@ const AddProduct = () => {
                         <input className="form-control " {...register("supplierName", { required: true, maxLength: 500 })} />
                     </div>
                 </div>
-                <input className="form-control w-25 mx-auto mt-4 bg-light fw-bold" type="submit" value="Add Product" />
+                <input className="form-control w-25 mx-auto mt-4 bg-info fw-bold" type="submit" value="Add Product" />
             </form>
             
         </div>

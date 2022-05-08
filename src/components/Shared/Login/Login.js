@@ -6,11 +6,13 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
 
 const Login = () => {
+    
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || '/login';
+
+    const from = location.state?.from?.pathname || '/home';
     
     const auth = getAuth();
     const provider = new GoogleAuthProvider(auth);

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { addTolocalStore, getStoredCart } from '../../Hooks/LocalStore';
 import useCart from '../../Hooks/useCart';
 import Product from '../Product/Product';
-import Cart from './Cart/Cart';
+import Cart from './Cart';
 import './Product.css'
 
 
@@ -10,7 +10,7 @@ const Products = () => {
     const [products, setProducts] = useState([]);
     const [pageCount, setPageCount] = useState([0]);
     const [page, setPage] = useState(0);
-    const [size, setSize] = useState(9);
+    const [size, setSize] = useState(12);
     let [cart, setCart] = useCart();
 
     useEffect(() => {
@@ -70,11 +70,11 @@ const Products = () => {
                         >{number + 1}</button>)
                     }
 
-                    <select defaultValue={'9'} onChange={e => setSize(e.target.value)}>
-                        <option value="6">6</option>
-                        <option value="9" >9</option>
-                        <option value="15">15</option>
-                        <option value="21">21</option>
+                    <select defaultValue={'12'} onChange={e => setSize(e.target.value)}>
+                        <option value="8">8</option>
+                        <option value="12" >12</option>
+                        <option value="16">16</option>
+                        <option value="20">20</option>
                     </select>
                 </div>
                 
