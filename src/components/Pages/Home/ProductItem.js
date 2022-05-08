@@ -6,14 +6,12 @@ import useProducts from '../../Hooks/useProducts';
 const ProductItem = () => {
     const [products, setProducts] = useProducts({});
 
-
     return (
         <div className='container my-5'>
             <p> Products</p>
             <div className='row'>
                 {
                     products.slice(0, 6).map(product =>
-                        
                         <div
                             key={product._id}
                             className='col-12 col-md-4 g-5 my-5'>
@@ -22,14 +20,18 @@ const ProductItem = () => {
                                 <Card.Body>
                                     <Card.Title>{product.name}</Card.Title>
                                     <div className='text-start mb-2'>
-                                        <p>Price: BDT. {product.price}</p>
-                                        <p>Supplier : {product.supplierName}</p>
+                                        <p><strong>Price: BDT.</strong> {product.price}</p>
+                                        <p><strong>Supplier :</strong> {product.supplierName}</p>
+                                        <p> <strong>Description :</strong> {product.description.slice(0, 100)}...</p>
+                                        <p><strong>Quantity :</strong> {product.quantity}</p>
+                                        
                                     </div>
 
                                 </Card.Body>
                             </Card>
-
+                            
                         </div>
+                        
                     )
 
                 }
