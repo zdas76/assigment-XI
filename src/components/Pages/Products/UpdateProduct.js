@@ -3,11 +3,11 @@ import { Navigate, useNavigate, useParams } from 'react-router-dom';
 
 const UpdateProduct = () => {
     const { id } = useParams();
-    // const Navigate = useNavigate();
+    const Navigate = useNavigate();
 
     const [products, setProduct] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/product/${id}`;
+        const url = `https://damp-coast-51374.herokuapp.com/product/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data));
@@ -20,7 +20,7 @@ const UpdateProduct = () => {
         
         const UpdateProduct = { quantity, price };
 
-        const url = `http://localhost:5000/product/${id}`;
+        const url = `https://damp-coast-51374.herokuapp.com/product/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -31,7 +31,7 @@ const UpdateProduct = () => {
             .then(res => res.json())
             .then(data => {
                 e.target.reset();
-                // Navigate('/http://localhost:3000/chekinvenroty')
+                Navigate('/chekinvenroty')
             })
     };
 

@@ -8,7 +8,7 @@ const ProductItem = () => {
 
     return (
         <div className='container my-5'>
-            <p> Products</p>
+            <p className='display-4 fw-bold'> Products</p>
             <div className='row'>
                 {
                     products.slice(0, 6).map(product =>
@@ -22,7 +22,7 @@ const ProductItem = () => {
                                     <div className='text-start mb-2'>
                                         <p><strong>Price: BDT.</strong> {product.price}</p>
                                         <p><strong>Supplier :</strong> {product.supplierName}</p>
-                                        <p> <strong>Description :</strong> {product.description.slice(0, 100)}...</p>
+                                        <p> <strong>Description :</strong> {product.description.slice(0, 80)}...</p>
                                         <p><strong>Quantity :</strong> {product.quantity}</p>
                                         
                                     </div>

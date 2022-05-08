@@ -14,7 +14,7 @@ const Products = () => {
     let [cart, setCart] = useCart();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/product?page=${page}&size=${size}`)
+        fetch(`https://damp-coast-51374.herokuapp.com/product?page=${page}&size=${size}`)
             .then(res => res.json())
             .then(data => setProducts(data));
     }, [page, size])
@@ -22,7 +22,7 @@ const Products = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/productcount')
+        fetch('https://damp-coast-51374.herokuapp.com/productcount')
             .then(res => res.json())
             .then(data => {
                 const count = data.count;
@@ -38,7 +38,6 @@ const Products = () => {
         let newCart = [...cart, product];
         setCart(newCart);    
         addTolocalStore(product._id);
-        console.log(product);
     }
     
     return (

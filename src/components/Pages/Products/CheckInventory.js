@@ -10,7 +10,7 @@ const CheckInventory = () => {
         const proceed = window.confirm('Product Delete?');
         if (proceed) {
            
-            const url = `http://localhost:5000/product/${id}`;
+            const url = `https://damp-coast-51374.herokuapp.com/product/${id}`;
             fetch(url, {
                 method: 'DELETE',
             })

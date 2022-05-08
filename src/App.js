@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import AddProduct from './components/Pages/AddProduct/AddProduct';
 import Blogs from './components/Pages/Blogs/Blogs';
 import Contact from './components/Pages/Contact/Contact';
@@ -13,6 +14,7 @@ import UpdateProduct from './components/Pages/Products/UpdateProduct';
 import RequiredAuth from './components/Pages/RequiredAuth/RequiredAuth';
 import Footer from './components/Shared/Footer/Footer';
 import Login from './components/Shared/Login/Login';
+import NotFoundpage from './components/Shared/NotFound/NotFoundpage';
 import Registration from './components/Shared/Registration/Registration';
 
 function App() {
@@ -37,6 +39,7 @@ function App() {
         <Route path='/contact' element={<Contact></Contact>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/registration' element={<Registration></Registration>}></Route>
+        <Route path='*' element={<NotFoundpage></NotFoundpage>}></Route>
         </Routes>
         <Footer></Footer>
       </div>

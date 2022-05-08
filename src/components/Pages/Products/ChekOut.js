@@ -20,22 +20,20 @@ const ChekOut = ( ) => {
     const onConfirmOrder = (e) => {
         
         const data = {}
-        console.log(data);
-
         
-        // const url = `http://localhost:5000/product`;
-        // fetch(url, {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(data)
-        // })
-        //     .then(res => res.json())
-        //     .then(name => {
-        //         e.target.reset();
-        //         console.log(name);
-        //     })
+        const url = `https://damp-coast-51374.herokuapp.com/product`;
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(name => {
+                e.target.reset();
+                deleteShoppingCart();
+            })
     };
     
    

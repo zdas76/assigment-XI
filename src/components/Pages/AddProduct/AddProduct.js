@@ -7,7 +7,7 @@ const AddProduct = () => {
     
     const onSubmit = (data, e) => {
         console.log(data);
-        const url = `http://localhost:5000/product`;
+        const url = `https://damp-coast-51374.herokuapp.com/product`;
         fetch(url, {
             method: 'POST',
             headers: {
